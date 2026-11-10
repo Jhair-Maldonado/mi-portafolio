@@ -1,6 +1,14 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import { CONTENT } from './data/content'
 
+/**
+ * Idioma del sitio (es/en).
+ *
+ * - Primera visita: se usa el idioma del navegador.
+ * - Después: se recuerda la elección en localStorage (si está disponible).
+ * - Al cambiar, se actualizan `<html lang>`, el título y la meta descripción.
+ */
+
 const KEY = 'portfolio-lang'
 const LangContext = createContext(null)
 
@@ -29,13 +37,12 @@ export function LangProvider({ children }) {
     }
   }, [lang])
 
-  return (
-    <LangContext.Provider value={{ lang, setLang, t: CONTENT[lang] }}>
-      {children}
-    </LangContext.Provider>
-  )
+  return <LangContext.Provider value={{ lang, setLang, t: CONTENT[lang] }}>{children}</LangContext.Provider>
 }
 
+/**
+ * @returns {{ lang: 'es' | 'en', setLang: (lang: 'es' | 'en') => void, t: typeof CONTENT.es }}
+ */
 // eslint-disable-next-line react-refresh/only-export-components
 export function useLang() {
   return useContext(LangContext)

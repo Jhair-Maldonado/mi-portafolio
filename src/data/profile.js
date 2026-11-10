@@ -1,4 +1,7 @@
-// Datos de contacto: un solo lugar para cambiarlos.
+/**
+ * Datos de contacto. Es el único lugar donde se definen;
+ * los componentes los leen desde aquí.
+ */
 export const PROFILE = {
   name: 'Jhair Maldonado',
   fullName: 'Jhair Junior Maldonado Quintana',

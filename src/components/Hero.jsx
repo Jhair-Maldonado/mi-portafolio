@@ -2,8 +2,13 @@ import { lazy, Suspense, useState } from 'react'
 import { useLang } from '../i18n'
 import { PROFILE } from '../data/profile'
 
+// three.js pesa ~120 kB comprimido: se carga aparte para no retrasar el primer render.
 const HexScene = lazy(() => import('./HexScene'))
 
+/**
+ * Portada: presentación a la izquierda y modelo 3D a la derecha.
+ * Al elegir un adaptador del modelo, el recuadro inferior explica dónde se usó.
+ */
 export default function Hero() {
   const { t } = useLang()
   const [active, setActive] = useState('ai')

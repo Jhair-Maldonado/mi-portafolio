@@ -2,8 +2,11 @@ import { LangProvider, useLang } from './i18n'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Projects from './components/Projects'
-import { Path, Skills, Contact } from './components/Background'
+import Timeline from './components/Timeline'
+import Skills from './components/Skills'
+import Contact from './components/Contact'
 
+/** Estructura de la página. Las secciones claras van dentro de `.page`. */
 function Page() {
   const { t } = useLang()
   return (
@@ -16,7 +19,7 @@ function Page() {
         <Hero />
         <div className="page">
           <Projects />
-          <Path />
+          <Timeline />
           <Skills />
         </div>
         <Contact />

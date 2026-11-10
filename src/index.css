@@ -140,7 +140,10 @@ button {
   text-decoration: none;
   border: 1.5px solid transparent;
   cursor: pointer;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+  transition:
+    background-color 0.15s,
+    color 0.15s,
+    border-color 0.15s;
 }
 .btn--small {
   min-height: 38px;

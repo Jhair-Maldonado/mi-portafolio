@@ -1,5 +1,33 @@
-// Todo el texto del sitio en español e inglés.
-// Cada proyecto lista solo lo que Jhair hizo personalmente.
+/**
+ * Contenido del sitio en español (`es`) e inglés (`en`).
+ *
+ * Para editar textos no hace falta tocar los componentes: todo sale de aquí.
+ * Regla de contenido: cada proyecto describe solo el trabajo propio,
+ * y todo lo que se afirma debe poder verificarse en el CV o en GitHub.
+ *
+ * @typedef {'es' | 'en'} Lang
+ *
+ * @typedef {Object} ProjectCopy Texto de un proyecto en un idioma.
+ * @property {string} kind Qué es el sistema, en pocas palabras.
+ * @property {string} role Rol personal dentro del proyecto.
+ * @property {string} problem Problema que resuelve.
+ * @property {string[]} mine Aportes propios, uno por punto.
+ * @property {{ value: string, label: string }[]} [evidence] Datos verificables.
+ * @property {['you' | 'bot', string][]} [chat] Conversación de ejemplo.
+ * @property {string} [chatNote] Nota bajo la conversación.
+ *
+ * @typedef {Object} Project
+ * @property {string} id Se usa en los ids del DOM (`p-<id>`).
+ * @property {string} name
+ * @property {string} [nameEn] Nombre en inglés, si cambia.
+ * @property {string} years
+ * @property {string} [demo] URL de la demo pública.
+ * @property {{ kind: 'code', href: string, label: Record<Lang, string> }[]} links
+ * @property {boolean} [backendPending] Muestra el aviso de backend aún privado.
+ * @property {string[]} stack
+ * @property {ProjectCopy} es
+ * @property {ProjectCopy} en
+ */
 
 export const CONTENT = {
   es: {
@@ -31,14 +59,27 @@ export const CONTENT = {
     adapters: [
       { id: 'rest', label: 'API REST', note: 'CORAULA: endpoints de Spring Boot para el módulo de administrador.' },
       { id: 'pg', label: 'PostgreSQL', note: 'CORAULA: esquema en Supabase versionado con migraciones de Flyway.' },
-      { id: 'jwt', label: 'JWT y roles', note: 'CORAULA: sesión con JWT, permisos por rol, bloqueo por intentos fallidos y auditoría.' },
-      { id: 'ai', label: 'Gemini', note: 'SIVI: asistente que consulta ventas e inventario y responde según el rol del usuario.' },
+      {
+        id: 'jwt',
+        label: 'JWT y roles',
+        note: 'CORAULA: sesión con JWT, permisos por rol, bloqueo por intentos fallidos y auditoría.',
+      },
+      {
+        id: 'ai',
+        label: 'Gemini',
+        note: 'SIVI: asistente que consulta ventas e inventario y responde según el rol del usuario.',
+      },
       { id: 'test', label: 'JUnit', note: 'CORAULA: más de 700 pruebas automatizadas en el equipo.' },
-      { id: 'ci', label: 'GitHub Actions', note: 'CORAULA: cada cambio pasa por integración continua antes de unirse.' },
+      {
+        id: 'ci',
+        label: 'GitHub Actions',
+        note: 'CORAULA: cada cambio pasa por integración continua antes de unirse.',
+      },
     ],
     projects: {
       heading: 'Proyectos',
-      intro: 'Tres sistemas donde escribí buena parte del código. En cada uno separo lo que hice yo de lo que hizo el equipo.',
+      intro:
+        'Tres sistemas donde escribí buena parte del código. En cada uno separo lo que hice yo de lo que hizo el equipo.',
       problem: 'El problema',
       mine: 'Lo que hice',
       evidence: 'Evidencia',
@@ -98,10 +139,22 @@ export const CONTENT = {
     adapters: [
       { id: 'rest', label: 'REST API', note: 'CORAULA: Spring Boot endpoints for the admin module.' },
       { id: 'pg', label: 'PostgreSQL', note: 'CORAULA: Supabase schema versioned with Flyway migrations.' },
-      { id: 'jwt', label: 'JWT & roles', note: 'CORAULA: JWT sessions, role permissions, lockout after failed logins, and audit logs.' },
-      { id: 'ai', label: 'Gemini', note: 'SIVI: an assistant that queries sales and stock and answers according to the user’s role.' },
+      {
+        id: 'jwt',
+        label: 'JWT & roles',
+        note: 'CORAULA: JWT sessions, role permissions, lockout after failed logins, and audit logs.',
+      },
+      {
+        id: 'ai',
+        label: 'Gemini',
+        note: 'SIVI: an assistant that queries sales and stock and answers according to the user’s role.',
+      },
       { id: 'test', label: 'JUnit', note: 'CORAULA: over 700 automated tests across the team.' },
-      { id: 'ci', label: 'GitHub Actions', note: 'CORAULA: every change runs through continuous integration before merging.' },
+      {
+        id: 'ci',
+        label: 'GitHub Actions',
+        note: 'CORAULA: every change runs through continuous integration before merging.',
+      },
     ],
     projects: {
       heading: 'Projects',
@@ -137,6 +190,7 @@ export const CONTENT = {
   },
 }
 
+/** Casos de estudio principales, en el orden en que se muestran. @type {Project[]} */
 export const PROJECTS = [
   {
     id: 'coraula',
@@ -144,7 +198,11 @@ export const PROJECTS = [
     years: '2026',
     demo: 'https://coraula-front.vercel.app',
     links: [
-      { kind: 'code', href: 'https://github.com/Jhair-Maldonado/CORAULA-FRONT', label: { es: 'Frontend', en: 'Frontend' } },
+      {
+        kind: 'code',
+        href: 'https://github.com/Jhair-Maldonado/CORAULA-FRONT',
+        label: { es: 'Frontend', en: 'Frontend' },
+      },
     ],
     backendPending: true,
     stack: ['Java 17', 'Spring Boot 3.4', 'Spring Security', 'PostgreSQL', 'Flyway', 'Next.js 16', 'TypeScript'],
@@ -189,7 +247,11 @@ export const PROJECTS = [
     years: '2025–2026',
     demo: 'https://sivi-front.pages.dev',
     links: [
-      { kind: 'code', href: 'https://github.com/Jhair-Maldonado/SIVI_FRONT', label: { es: 'Frontend', en: 'Frontend' } },
+      {
+        kind: 'code',
+        href: 'https://github.com/Jhair-Maldonado/SIVI_FRONT',
+        label: { es: 'Frontend', en: 'Frontend' },
+      },
     ],
     backendPending: true,
     stack: ['Java', 'Spring Boot', 'Gemini API', 'React 19', 'Vite', 'jsPDF'],
@@ -230,7 +292,11 @@ export const PROJECTS = [
     nameEn: 'Task chatbot',
     years: '2025',
     links: [
-      { kind: 'code', href: 'https://github.com/Jhair-Maldonado/GestionTareas_Gemini', label: { es: 'Repositorio', en: 'Repository' } },
+      {
+        kind: 'code',
+        href: 'https://github.com/Jhair-Maldonado/GestionTareas_Gemini',
+        label: { es: 'Repositorio', en: 'Repository' },
+      },
     ],
     stack: ['Python', 'Gemini 2.0 Flash', 'PyDatalog'],
     es: {
@@ -267,6 +333,7 @@ export const PROJECTS = [
   },
 ]
 
+/** Trabajos secundarios, mostrados como lista compacta. */
 export const OTHER_WORK = [
   {
     id: 'maquinaria',
@@ -314,6 +381,7 @@ export const OTHER_WORK = [
   },
 ]
 
+/** Trayectoria, de lo más reciente a lo más antiguo. */
 export const TIMELINE = [
   {
     when: { es: 'En curso', en: 'Ongoing' },
@@ -329,11 +397,13 @@ export const TIMELINE = [
     when: { es: 'Mar.–nov. 2024', en: 'Mar–Nov 2024' },
     es: {
       title: 'Soporte técnico TI, freelance',
-      place: 'Atendí incidencias de hardware y software en laptops, computadoras e impresoras; diagnóstico, mantenimiento preventivo y revisión de red.',
+      place:
+        'Atendí incidencias de hardware y software en laptops, computadoras e impresoras; diagnóstico, mantenimiento preventivo y revisión de red.',
     },
     en: {
       title: 'IT support, freelance',
-      place: 'Fixed hardware and software issues on laptops, desktops and printers; diagnostics, preventive maintenance and network checks.',
+      place:
+        'Fixed hardware and software issues on laptops, desktops and printers; diagnostics, preventive maintenance and network checks.',
     },
   },
   {
@@ -343,15 +413,50 @@ export const TIMELINE = [
   },
 ]
 
+/**
+ * Conocimientos por área. `itemsEn` solo se define cuando la traducción cambia;
+ * `basic: true` marca lo que aún se está aprendiendo.
+ */
 export const SKILLS = [
   { es: 'Lenguajes', en: 'Languages', items: ['Java', 'JavaScript', 'TypeScript', 'SQL'] },
-  { es: 'Backend', en: 'Backend', items: ['Spring Boot', 'Spring Security', 'APIs REST', 'Arquitectura hexagonal'], itemsEn: ['Spring Boot', 'Spring Security', 'REST APIs', 'Hexagonal architecture'] },
+  {
+    es: 'Backend',
+    en: 'Backend',
+    items: ['Spring Boot', 'Spring Security', 'APIs REST', 'Arquitectura hexagonal'],
+    itemsEn: ['Spring Boot', 'Spring Security', 'REST APIs', 'Hexagonal architecture'],
+  },
   { es: 'Frontend', en: 'Frontend', items: ['React', 'Next.js', 'Angular', 'Tailwind CSS'] },
   { es: 'Datos', en: 'Data', items: ['PostgreSQL', 'MySQL', 'Supabase', 'Flyway'] },
-  { es: 'Seguridad', en: 'Security', items: ['JWT', 'BCrypt', 'Roles y permisos', 'Auditoría'], itemsEn: ['JWT', 'BCrypt', 'Roles and permissions', 'Auditing'] },
-  { es: 'Calidad', en: 'Quality', items: ['Git', 'GitHub Actions', 'Maven', 'JUnit', 'Pruebas funcionales'], itemsEn: ['Git', 'GitHub Actions', 'Maven', 'JUnit', 'Functional testing'] },
-  { es: 'Análisis', en: 'Analysis', items: ['Requerimientos', 'Especificación SRS', 'Casos de prueba'], itemsEn: ['Requirements', 'SRS specs', 'Test cases'] },
+  {
+    es: 'Seguridad',
+    en: 'Security',
+    items: ['JWT', 'BCrypt', 'Roles y permisos', 'Auditoría'],
+    itemsEn: ['JWT', 'BCrypt', 'Roles and permissions', 'Auditing'],
+  },
+  {
+    es: 'Calidad',
+    en: 'Quality',
+    items: ['Git', 'GitHub Actions', 'Maven', 'JUnit', 'Pruebas funcionales'],
+    itemsEn: ['Git', 'GitHub Actions', 'Maven', 'JUnit', 'Functional testing'],
+  },
+  {
+    es: 'Análisis',
+    en: 'Analysis',
+    items: ['Requerimientos', 'Especificación SRS', 'Casos de prueba'],
+    itemsEn: ['Requirements', 'SRS specs', 'Test cases'],
+  },
   { es: 'IA', en: 'AI', items: ['Integración de Gemini'], itemsEn: ['Gemini integration'] },
-  { es: 'Básico', en: 'Basic', basic: true, items: ['Python', 'Docker', 'k6', 'Power BI', 'Redes'], itemsEn: ['Python', 'Docker', 'k6', 'Power BI', 'Networking'] },
-  { es: 'Inglés', en: 'English', items: ['Lectura técnica intermedia', 'Conversación básica'], itemsEn: ['Intermediate technical reading', 'Basic conversation'] },
+  {
+    es: 'Básico',
+    en: 'Basic',
+    basic: true,
+    items: ['Python', 'Docker', 'k6', 'Power BI', 'Redes'],
+    itemsEn: ['Python', 'Docker', 'k6', 'Power BI', 'Networking'],
+  },
+  {
+    es: 'Inglés',
+    en: 'English',
+    items: ['Lectura técnica intermedia', 'Conversación básica'],
+    itemsEn: ['Intermediate technical reading', 'Basic conversation'],
+  },
 ]
